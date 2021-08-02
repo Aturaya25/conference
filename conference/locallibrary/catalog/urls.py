@@ -24,4 +24,3 @@ urlpatterns += [
     path(r'^presentation/(?P<pk>\d+)$/update/$', views.PresentationUpdate.as_view(), name='presentation_update'),
     path(r'^presentation/(?P<pk>\d+)$/delete/$', views.PresentationDelete.as_view(), name='presentation_delete'),
 ]
-#urlpatterns += path('registerListener/', views.registerListener, name='registerListener')

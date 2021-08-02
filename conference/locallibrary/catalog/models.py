@@ -1,13 +1,9 @@
 import uuid
-from typing import Iterable
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils import timezone
-import ast
-
-from pytz import unicode
 
 
 class UserProfile(models.Model):
@@ -70,12 +66,4 @@ class Schedule(models.Model):
             self.room.busy = True
         else:
             self.room.busy = False
-'''
-    def registerListener(self, val):
-        mylist = list(self.listener).split(' ')
-        self.listener += val
-
-    def removeListener(self, val):
-'''
-
 
