@@ -1,0 +1,44 @@
+[
+  {
+    "model":"catalog.room",
+    "pk":1,
+    "fields":{
+      "room": "2b",
+      "places":"15",
+      "free_places": "15",
+      "busy": "False"
+    }
+  },
+
+  {
+    "model":"catalog.room",
+    "pk":2,
+    "fields":{
+      "room": "2a",
+      "places":"19",
+      "free_places": "19",
+      "busy": "False"
+    }
+  },
+  {
+    "model":"catalog.room",
+    "pk":3,
+    "fields":{
+      "room": "3a",
+      "places":"20",
+      "free_places": "20",
+      "busy": "False"
+    }
+  },
+  {
+    "model":"catalog.room",
+    "pk":4,
+    "fields":{
+      "room": "3b",
+      "places":"22",
+      "free_places": "22",
+      "busy": "False"
+    }
+  }
+]
+

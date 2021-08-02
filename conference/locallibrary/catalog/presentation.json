@@ -1,0 +1,38 @@
+[
+{
+    "model":"catalog.presentation",
+    "pk":1,
+    "fields":{
+      "created_date": "2021-08-21",
+      "presentation_author": "Boby",
+      "presentation_name":"Whether"
+    }
+  },
+  {
+    "model":"catalog.presentation",
+    "pk":2,
+    "fields":{
+      "created_date": "2021-07-07",
+      "presentation_author": "Stephan",
+      "presentation_name":"Geometry"
+    }
+  },
+  {
+    "model":"catalog.presentation",
+    "pk":3,
+    "fields":{
+      "created_date": "2021-05-10",
+      "presentation_author": "ivan",
+      "presentation_name":"Tree problem"
+    }
+  },
+  {
+    "model":"catalog.presentation",
+    "pk":4,
+    "fields":{
+      "created_date": "2021-06-23",
+      "presentation_author": "ivan",
+      "presentation_name":"History"
+    }
+  }
+]

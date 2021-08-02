@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+    <h1>Renew: {{schedules.schedule.presentation}}</h1>
+    <p>Presenter: {{schedules.author}}</p>
+    <p{% if schedules.is_overdue %} class="text-danger"{% endif %}>Start date: {{schedules.start_date}}</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+
+{% endblock %}

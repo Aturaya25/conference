@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Presentation List</h1>
+
+    {% if presentation_list %}
+    <ul>
+
+      {% for presentation in presentation_list %}
+      <li>
+       <a href="{{ presentation.get_absolute_url }}"><strong>Name: </strong>{{ presentation.presentation_name }}</a>
+
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Presentation is empty.</p>
+    {% endif %}
+
+    <h1>My Presentation</h1>
+
+    {% if presentation_list %}
+    <ul>
+
+      {% for presentation in presentation_list %}
+        {%if presentation.presentation_author == request.user.username  %}
+            <li>
+            <a href="{{ presentation.get_absolute_url }}"><strong>Name: </strong>{{ presentation.presentation_name }}</a>
+
+            </li>
+        {% endif %}
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Have not presentation.</p>
+    {% endif %}
+{% endblock %}

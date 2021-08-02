@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <p><strong>Name: </strong> {{ presentation.presentation_name }}</p>
+  <p><strong>Author: </strong> {{ presentation.presentation_author }}</p>
+  <p><strong>Created date:</strong> {{ presentation.created_date }}</p>
+
+  {%if presentation.presentation_author == request.user.username  %}
+    <div class="presenter-panel align-items-center">
+        <a href="{{presentation.get_absolute_url}}/delete/$" class="btn btn-outline-info">Delete my presentation</a>
+        <a href="{{presentation.get_absolute_url}}/update/$" class="btn btn-outline-info">Update my presentation</a>
+      {% block presenter-panel %}{% endblock %}
+            </div>
+
+        {% endif %}
+{% endblock %}

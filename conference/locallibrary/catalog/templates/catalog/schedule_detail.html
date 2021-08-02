@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <p><strong>Room:</strong> {{ schedule.room }}</p> <!-- author detail link not yet defined -->
+  <p><strong>Start date:</strong> {{ schedule.start_date }}</p>
+  <p><strong>End date:</strong> {{ schedule.end_date }}</p>
+  <p><strong>Author:</strong> {{ schedule.author }}</p>
+  <p><strong>Presentation info:</strong> {{ schedule.presentation }} </p>
+{% load has_group %}
+  {% if request.user|has_group:"listener" %}
+    <div class="schedule-register align-items-center">
+      <a href="/catalog" class="btn btn-outline-info">Delete my schedule</a>
+    </div>
+  {% endif %}
+  {%if schedule.author == request.user.username  %}
+    <div class="presenter-panel align-items-center">
+        <a href="{{schedule.get_absolute_url}}/delete/$" class="btn btn-outline-info">Delete my schedule</a>
+        <a href="{{schedule.get_absolute_url}}/update/$" class="btn btn-outline-info">Update my schedule</a>
+      {% block presenter-panel %}{% endblock %}
+            </div>
+
+  {% endif %}
+{% endblock %}

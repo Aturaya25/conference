@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1> Conference</h1>
+
+
+<h2>Dynamic content</h2>
+
+  <p>The conference has the following record counts:</p>
+  <ul>
+    <li><strong>Room:</strong> {{ num_room }}</li>
+    <li><strong>Free room:</strong> {{ num_free_room }}</li>
+    <li><strong>Presentation:</strong> {{ num_presentation }}</li>
+  </ul>
+
+{% endblock %}

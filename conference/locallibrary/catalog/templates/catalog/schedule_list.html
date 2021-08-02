@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Schedule List</h1>
+
+    {% if schedule_list %}
+    <ul>
+
+      {% for schedule in schedule_list %}
+      <li>
+       <a href="{{ schedule.get_absolute_url }}"><strong>Author: </strong>{{ schedule.author }}</a>
+                (<strong>Room: </strong> {{ schedule.room }},
+                <strong>Start date: </strong> {{ schedule.start_date }})
+
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Schedule is empty.</p>
+    {% endif %}
+<h1>My Schedule</h1>
+
+    {% if schedule_list %}
+    <ul>
+
+      {% for schedule in schedule_list %}
+        {%if schedule.author == request.user.username  %}
+            <li>
+            <a href="{{ schedule.get_absolute_url }}"><strong>Author: </strong>{{ schedule.author }}</a>
+                (<strong>Room: </strong> {{ schedule.room }},
+                <strong>Start date: </strong> {{ schedule.start_date }})
+
+            </li>
+        {% endif %}
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Have not schedule.</p>
+    {% endif %}
+{% endblock %}
