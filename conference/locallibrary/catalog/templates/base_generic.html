@@ -22,28 +22,39 @@
       {% block sidebar %}
       {% load has_group %}
       <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'schedule' %}">Schedule</a></li>
-          {% if request.user|has_group:"presenter" %}
-            <li><a href="{% url 'presentation' %}">Presentation</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'schedule' %}">Schedule</a></li>
+            {% if request.user|has_group:"presenter" %}
+                <li><a href="{% url 'presentation' %}">Presentation</a></li>
+                <div class="presenter-panel align-items-center">
+                    <a href="/catalog/presentation/create" class="btn btn-outline-info">Add presentation</a>
+                    <a href="/catalog/schedule/create" class="btn btn-outline-info">Add performance</a>
+                    <div>Current user name is {{request.user.username}}, and he is presenter</div>
+                    {% block presenter-panel %}{% endblock %}
+                </div>
+                {% endif %}
+            <li><a href="{% url 'room' %}">Room</a></li>
+            <li><a href="{% url 'logout' %}">Exit</a></li>
+        </ul>
+          {% else %}
+                    <li><a href="{% url 'login' %}">Log in</a></li>
+                    <li><a href="{% url 'register' %}">Sign up</a></li>
           {% endif %}
-          <li><a href="{% url 'room' %}">Room</a></li>
-      </ul>
      {% endblock %}
       </div>
-        {% if request.user|has_group:"admin" %}
-            <div class="admin-panel align-items-center">
-                <a href="/admin" class="btn btn-outline-info">Admin</a>
-                {% block admin-panel %}{% endblock %}
-            </div>
-        {% endif %}
-        {% if request.user|has_group:"presenter" %}
-            <div class="presenter-panel align-items-center">
-                <a href="/catalog/presentation/create" class="btn btn-outline-info">Add presentation</a>
-                <a href="/catalog/schedule/create" class="btn btn-outline-info">Add performance</a>
-                {% block presenter-panel %}{% endblock %}
-            </div>
-
+            {% if request.user|has_group:"admin" %}
+                <div class="admin-panel align-items-center">
+                    <a href="/admin" class="btn btn-outline-info">Admin</a>
+                    <div>Current user name is {{request.user.username}}, and he is admin</div>
+                    {% block admin-panel %}{% endblock %}
+                </div>
+            {% endif %}
+            {% if request.user|has_group:"listener" %}
+                <div class="listener-panel align-items-center">
+                    <div>Current user name is {{request.user.username}}, and he is listener</div>
+                    {% block listener-panel %}{% endblock %}
+                </div>
         {% endif %}
       <div class="col-sm-10 ">
       {% block content %}{% endblock %}

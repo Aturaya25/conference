@@ -2,23 +2,30 @@
 
 {% block content %}
 
-  <p><strong>Room:</strong> {{ schedule.room }}</p> <!-- author detail link not yet defined -->
+  <p><strong>Room:</strong> {{ schedule.room }}</p>
+  <p><strong>All free places:</strong> {{ schedule.room.free_places }} </p>
   <p><strong>Start date:</strong> {{ schedule.start_date }}</p>
   <p><strong>End date:</strong> {{ schedule.end_date }}</p>
   <p><strong>Author:</strong> {{ schedule.author }}</p>
   <p><strong>Presentation info:</strong> {{ schedule.presentation }} </p>
+  <p><strong>Count of listener:</strong> {{ schedule.all_listener }} </p>
+  <p><strong>Status:</strong> {{ schedule.check_status }} </p>
+
 {% load has_group %}
-  {% if request.user|has_group:"listener" %}
-    <div class="schedule-register align-items-center">
-      <a href="/catalog" class="btn btn-outline-info">Delete my schedule</a>
-    </div>
-  {% endif %}
+{% if request.user|has_group:"presenter" %}
   {%if schedule.author == request.user.username  %}
     <div class="presenter-panel align-items-center">
         <a href="{{schedule.get_absolute_url}}/delete/$" class="btn btn-outline-info">Delete my schedule</a>
         <a href="{{schedule.get_absolute_url}}/update/$" class="btn btn-outline-info">Update my schedule</a>
       {% block presenter-panel %}{% endblock %}
             </div>
+    {% endif %}
+  {% endif %}
 
+  {% if request.user|has_group:"listener" %}
+      <div class="register-panel align-items-center">
+          <a href="/catalog/register/listener$" class="btn btn-outline-info">Register/Unsubscrible</a>
+        {% block register-panel %}{% endblock %}
+      </div>
   {% endif %}
 {% endblock %}

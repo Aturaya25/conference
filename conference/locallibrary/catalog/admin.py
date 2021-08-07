@@ -23,8 +23,8 @@ class RoomAdmin(admin.ModelAdmin):
 
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
-    list_display = ('room', 'author', 'presentation', 'start_date', 'end_date')
-    fields = ['room', 'author', 'presentation', ('start_date', 'end_date')]
+    list_display = ('room', 'author', 'presentation', 'start_date', 'end_date', 'status')
+    fields = ['room', 'author', 'presentation', 'status', ('start_date', 'end_date')]
 
 
 #admin.site.register(UserProfile)

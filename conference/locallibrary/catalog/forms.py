@@ -1,7 +1,7 @@
 import datetime
 
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -34,3 +34,4 @@ class RenewScheduleForm(forms.Form):
             raise ValidationError(_('Invalid date - renewal more than 4 weeks ahead'))
 
         return data
+

@@ -1,3 +1,4 @@
+import django
 from django.urls import path
 from . import views
 from django.conf.urls import url
@@ -5,6 +6,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('', views.index, name='index'),
     url(r'^$', views.index, name='index'),
+    url(r'^register/listener', views.register_listener, name='register-listener'),
     url(r'^schedule/$', views.ScheduleListViews.as_view(), name='schedule'),
     path(r'^schedule/(?P<pk>\d+)$', views.ScheduleDetailViews.as_view(), name='schedule-detail'),
     url(r'^presentation/$', views.PresentationViews.as_view(), name='presentation'),
@@ -12,6 +14,8 @@ urlpatterns = [
     path(r'^room/(?P<pk>\d+)$', views.RoomDetailViews.as_view(), name='room-detail'),
     url(r'^room/$', views.RoomViews.as_view(), name='room'),
     url(r'^register/$', views.register, name='register'),
+    path('logout/', django.contrib.auth.views.LogoutView.as_view(), name='logout'),
+    path('login/', django.contrib.auth.views.LoginView.as_view(), name='login'),
 ]
 
 urlpatterns += [
