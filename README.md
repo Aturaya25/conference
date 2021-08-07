@@ -5,18 +5,12 @@ https://github.com/Aturaya25/conference.git
 ```bash
 cd locallibrary
 ```
-Создать и активировать виртуальное окружение Python.
-Установить зависимости из файла **requirements.txt**:
+* Запустить следующий файл
 ```bash
-pip install -r requirements.txt
+bash ./start.sh
 ```
 
-# Выполнить следующие команды:
-* Команда для создания миграций приложения для базы данных
-```bash
-python3 manage.py makemigrations
-python3 manage.py migrate
-```
+
 
 * Создание суперпользователя
 ```bash
@@ -28,15 +22,6 @@ Email address: admin@admin.com
 Password: ********
 Password (again): ********
 Superuser created successfully.
-```
-* Команда для заполнения данных
-```bash
-python3 manage.py loaddata catalog/room.json
-python3 manage.py loaddata catalog/presentation.json
-```
-* Команда для запуска приложения
-```bash
-python3 manage.py runserver
 ```
 
 Главная страница содержит количество аудиторий, презентация и намеченных выступлений
