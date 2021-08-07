@@ -31,12 +31,12 @@ Superuser created successfully.
 ```
 * Команда для заполнения данных
 ```bash
-python3 manange.py loaddata catalog/room.json
-python3 manange.py loaddata catalog/presentation.json
+python3 manage.py loaddata catalog/room.json
+python3 manage.py loaddata catalog/presentation.json
 ```
 * Команда для запуска приложения
 ```bash
-python3 manange.py runserver
+python3 manage.py runserver
 ```
 
 Главная страница содержит количество аудиторий, презентация и намеченных выступлений
